@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Group12_iCAREAPP", "Group12_iCAREAPP\Group12_iCAREAPP.csproj", "{410E8FB0-EC63-43BD-B079-F1F93C25BBEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{410E8FB0-EC63-43BD-B079-F1F93C25BBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410E8FB0-EC63-43BD-B079-F1F93C25BBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410E8FB0-EC63-43BD-B079-F1F93C25BBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410E8FB0-EC63-43BD-B079-F1F93C25BBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCB214E0-5EEA-4D21-A9FB-EAACBB8F05C5}
+	EndGlobalSection
+EndGlobal
