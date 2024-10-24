@@ -134,6 +134,7 @@
     <Compile Include="Controllers\iCAREAdminsController.cs" />
     <Compile Include="Controllers\iCAREUsersController.cs" />
     <Compile Include="Controllers\iCAREWorkersController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ModificationHistoriesController.cs" />
     <Compile Include="Controllers\PatientRecordsController.cs" />
     <Compile Include="Controllers\TreatmentRecordsController.cs" />
@@ -324,6 +325,9 @@
     <Content Include="Views\UserRoles\Details.cshtml" />
     <Content Include="Views\UserRoles\Edit.cshtml" />
     <Content Include="Views\UserRoles\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
