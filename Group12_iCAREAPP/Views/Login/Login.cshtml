@@ -1,10 +1,26 @@
 ﻿
-
-
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/LoginLayout.cshtml"; 
 }
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+    <div>
+        <h3>Username</h3>
+        <input type="text" id="username", name="username" />
+    </div>
+    <div>
+        <h3>Password</h3>
+        <input type="password" id="password" name="password" />
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+
+
+
 
 
 
