@@ -331,6 +331,7 @@
     <Content Include="Views\Shared\WorkerLayout.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\PatientRecords\ListAssignedPatients.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
