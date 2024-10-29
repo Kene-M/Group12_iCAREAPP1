@@ -20,9 +20,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("iCARE Board", "Index", "PatientRecords", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("MyBoard", "Index", "TreatmentRecords", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Login","Index", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                    <!--
+                        <li>@Html.ActionLink("iCARE Board", "Index", "PatientRecords", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("MyBoard", "Index", "TreatmentRecords", new { area = "" }, new { @class = "nav-link" })</li>
+                    -->
+                    <li>@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>
@@ -31,7 +33,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>Creators: Kene Maduabum, Sydney Poulsen, Isaiah Shavers, and Cooper Mathisen. &copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 

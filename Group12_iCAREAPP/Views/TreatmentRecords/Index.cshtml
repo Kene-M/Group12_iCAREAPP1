@@ -4,7 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@{
+    Layout = "~/Views/Shared/WorkerLayout.cshtml";
+}
+
+@* <h2>Index</h2> *@
+<h2>My Board</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,29 +34,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.treatmentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.iCAREWorker.profession)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PatientRecord.name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.treatmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iCAREWorker.profession)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientRecord.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>
