@@ -88,10 +88,24 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
-                @Html.ActionLink("Add", "AssignWorkerToPatient", item.ID.ToString())
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+            <td>
+                <button onclick="assignWorker(@item.ID)">Assign</button>
             </td>
         </tr>
     }
 
 </table>
+
+<script>
+    function assignWorker(patientID) {
+        $.post('@Url.Action("AssignWorkerToPatient", "PatientRecords")', { patientID: patientID })
+            .done(function(response) {
+                alert(response.message);
+            })
+            .fail(function() {
+                alert("Error assigning worker.");
+            });
+    }
+</script>
