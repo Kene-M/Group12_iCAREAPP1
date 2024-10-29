@@ -32,12 +32,12 @@ namespace Group12_iCAREAPP.Controllers
 
                     if (userPassword != null)
                     {
-                        //compare passwords
+                        //compare passwords to ensure they match
                         if (password == userPassword.password) 
                         {
-                            if(user.ID=="admin")
+                            if(user.ID == "admin")
                             {
-                                return RedirectToAction("Index", "iCAREWorkers");
+                                return RedirectToAction("Index", "iCAREUsers");
                             }
                             return RedirectToAction("Index", "PatientRecords");
                         }
