@@ -327,7 +327,10 @@
     <Content Include="Views\UserRoles\Index.cshtml" />
     <Content Include="Views\Shared\LoginLayout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+	  
+	  
     <Content Include="Views\PatientRecords\ListAssignedPatients.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

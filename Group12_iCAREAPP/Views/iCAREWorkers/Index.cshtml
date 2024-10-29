@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<Group12_iCAREAPP.Models.iCAREWorker>
 
+
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -32,7 +34,7 @@
             @Html.DisplayFor(modelItem => item.profession)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.iCAREAdmin.iCAREUser.name)
+            @Html.DisplayFor(modelItem => item.iCAREAdmin.ID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.iCAREUser.name)
