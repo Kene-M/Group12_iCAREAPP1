@@ -35,6 +35,7 @@ namespace Group12_iCAREAPP.Controllers
                         //compare passwords
                         if (password == userPassword.password) 
                         {
+                            Session["userID"] = user.ID;
                             if(user.ID=="admin")
                             {
                                 return RedirectToAction("Index", "iCAREWorkers");
@@ -44,7 +45,7 @@ namespace Group12_iCAREAPP.Controllers
                     }
                 }
 
-            return View("Login", username, password);
+            return RedirectToAction("Index", "TreatmentRecords");
         }
     }
 }

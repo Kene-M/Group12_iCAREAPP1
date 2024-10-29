@@ -132,5 +132,42 @@ namespace Group12_iCAREAPP.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult AssignWorkerToPatient(string patientID)
+        {
+            // Get the current user's ID, assumed from authentication
+            string workerID = Session["userID"].ToString();
+
+            // Retrieve the patient record from the database
+            var patient = db.PatientRecord.SingleOrDefault(p => p.ID == patientID);
+
+            if (patient != null)
+            {
+                // Assign the worker's ID to the maintainWorkerID field
+                patient.maintainWorkerID = workerID;
+                db.SaveChanges();
+                ViewBag.Message = "Worker ID added";
+            }
+            else
+            {
+                ViewBag.Message = "Worker failed to be added";
+            }
+            return RedirectToAction("Index", "PatientRecords");
+        }
+
+        //ListAssignedPatients
+        public ActionResult ListAssignedPatients()
+        {
+            // Get the current user's ID
+            string currentUserID = Session["userID"].ToString();
+
+            // Retrieve patients assigned to the current user
+            var assignedPatients = db.PatientRecord
+                                     .Where(p => p.maintainWorkerID == currentUserID)
+                                     .ToList();
+
+            return View(assignedPatients);
+        }
+
     }
 }

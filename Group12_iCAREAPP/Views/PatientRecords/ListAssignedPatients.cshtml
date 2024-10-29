@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Group12_iCAREAPP.Models.PatientRecord>
+
+@{
+
+    ViewBag.Title = "ListAssignedPatients";
+}
+
+
+<h2>Assigned Patients</h2>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var patient in Model)
+            {
+                <tr>
+                    <td>@patient.ID</td>
+                    <td>@patient.name</td>
+                    <td>@patient.dateOfBirth</td>
+                    <!-- Display other fields if needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+<p>No patients assigned to you.</p>
+}
