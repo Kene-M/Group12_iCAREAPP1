@@ -17,7 +17,15 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID)
+            @* @Html.DisplayNameFor(model => model.ID) *@
+            Treatment ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientRecord.name)
+        </th>
+        <th>
+            @* @Html.DisplayNameFor(model => model.iCAREWorker.profession) *@
+            Worker ID
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
@@ -25,12 +33,7 @@
         <th>
             @Html.DisplayNameFor(model => model.treatmentDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.iCAREWorker.profession)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PatientRecord.name)
-        </th>
+
         <th></th>
     </tr>
 
@@ -41,17 +44,19 @@
                 @Html.DisplayFor(modelItem => item.ID)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.PatientRecord.name)
+            </td>
+            <td>
+                @* @Html.DisplayFor(modelItem => item.iCAREWorker.profession) *@
+                @Html.DisplayFor(modelItem => item.iCAREWorker.ID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.treatmentDate)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.iCAREWorker.profession)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PatientRecord.name)
-            </td>
+
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
