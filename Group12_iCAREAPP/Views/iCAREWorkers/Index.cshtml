@@ -18,16 +18,19 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.profession)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.iCAREAdmin.ID)
+            @Html.DisplayNameFor(model => model.creatorID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.iCAREUser.name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserRole.roleName)
+            @Html.DisplayNameFor(model => model.iCAREUser)
         </th>
         <th></th>
     </tr>
@@ -36,16 +39,16 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.profession)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.iCAREAdmin.ID)
+                @Html.DisplayFor(modelItem => item.creatorID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.iCAREUser.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserRole.roleName)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
