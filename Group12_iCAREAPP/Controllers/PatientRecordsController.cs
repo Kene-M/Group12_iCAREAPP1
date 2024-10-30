@@ -133,10 +133,11 @@ namespace Group12_iCAREAPP.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpPost]
         public ActionResult AssignWorkerToPatient(string patientID)
         {
             // Get the current user's ID, assumed from authentication
-            string workerID = Session["userID"].ToString();
+            string workerID = Session["UserID"].ToString();
 
             // Retrieve the patient record from the database
             PatientRecord patient = db.PatientRecord.SingleOrDefault(p => p.ID == patientID);
@@ -146,11 +147,11 @@ namespace Group12_iCAREAPP.Controllers
                 // Assign the worker's ID to the maintainWorkerID field
                 patient.maintainWorkerID = workerID;
                 db.SaveChanges();
-                ViewBag.Message = "Worker ID added";
+                //ViewBag.Message = "Worker ID added";
             }
             else
             {
-                ViewBag.Message = "Worker failed to be added";
+                //ViewBag.Message = "Worker failed to be added";
             }
             return RedirectToAction("Index", "PatientRecords");
         }
@@ -159,7 +160,7 @@ namespace Group12_iCAREAPP.Controllers
         public ActionResult ListAssignedPatients()
         {
             // Get the current user's ID
-            string currentUserID = Session["userID"].ToString();
+            string currentUserID = Session["UserID"].ToString();
 
             // Retrieve patients assigned to the current user
             var assignedPatients = db.PatientRecord
