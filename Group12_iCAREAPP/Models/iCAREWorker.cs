@@ -22,7 +22,7 @@ namespace Group12_iCAREAPP.Models
             this.PatientRecord = new HashSet<PatientRecord>();
             this.TreatmentRecord = new HashSet<TreatmentRecord>();
         }
-    
+
         public string ID { get; set; }
         public string profession { get; set; }
         public string creatorID { get; set; }
