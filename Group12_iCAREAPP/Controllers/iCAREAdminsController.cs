@@ -213,16 +213,64 @@ namespace Group12_iCAREAPP.Controllers
             return View(iCAREAdmin);
         }
 
+
         // POST: iCAREAdmins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            iCAREAdmin iCAREAdmin = db.iCAREAdmin.Find(id);
-            db.iCAREAdmin.Remove(iCAREAdmin);
-            db.SaveChanges();
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    // Find the iCAREAdmin
+                    var iCAREAdmin = db.iCAREAdmin.Find(id);
+                    if (iCAREAdmin == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    // Find the associated iCAREUser
+                    var iCAREUser = db.iCAREUser.Find(id);
+                    if (iCAREUser == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    // Find the associated UserPassword
+                    var userPassword = db.UserPassword.Find(iCAREUser.passwordID);
+                    if (userPassword != null)
+                    {
+                        db.UserPassword.Remove(userPassword);
+                    }
+
+                    // Remove the iCAREUser
+                    db.iCAREUser.Remove(iCAREUser);
+
+                    // Remove the iCAREAdmin
+                    db.iCAREAdmin.Remove(iCAREAdmin);
+
+                    // Save changes
+                    db.SaveChanges();
+
+                    // Commit transaction
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    // Rollback transaction if any error occurs
+                    transaction.Rollback();
+                    ModelState.AddModelError("", "An error occurred while deleting the admin, user, and password.");
+                    // Log the exception details
+                    System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message);
+                    System.Diagnostics.Debug.WriteLine("Stack Trace: " + ex.StackTrace);
+                    return RedirectToAction("Delete", new { id });
+                }
+            }
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {
