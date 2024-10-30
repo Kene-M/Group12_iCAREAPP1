@@ -17,9 +17,12 @@ namespace Group12_iCAREAPP.Controllers
         // GET: iCAREUsers
         public ActionResult Index()
         {
-            var iCAREUser = db.iCAREUser.Include(i => i.iCAREAdmin).Include(i => i.UserPassword).Include(i => i.iCAREWorker);
-            return View(iCAREUser.ToList());
+            var users = db.iCAREUser
+                          .Where(u => !db.iCAREAdmin.Any(a => a.ID == u.ID))
+                          .ToList();
+            return View(users);
         }
+
 
         // GET: iCAREUsers/Details/5
         public ActionResult Details(string id)
