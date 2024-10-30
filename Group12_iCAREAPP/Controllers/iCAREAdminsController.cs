@@ -139,8 +139,6 @@ namespace Group12_iCAREAPP.Controllers
         // POST: iCAREAdmins/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-
         public ActionResult Edit([Bind(Include = "ID,name,password,passwordID,dateFinished")] iCAREAdminViewModel viewModel)
         {
             if (ModelState.IsValid)
@@ -149,14 +147,14 @@ namespace Group12_iCAREAPP.Controllers
                 {
                     try
                     {
-                        // Find the existing iCAREUser
+                        //find the existing iCAREUser
                         var iCAREUser = db.iCAREUser.Find(viewModel.ID);
                         if (iCAREUser == null)
                         {
                             return HttpNotFound();
                         }
 
-                        // Update the UserPassword
+                        //update the UserPassword
                         var userPassword = db.UserPassword.Find(iCAREUser.passwordID);
                         if (userPassword != null)
                         {
@@ -164,35 +162,32 @@ namespace Group12_iCAREAPP.Controllers
                             db.Entry(userPassword).State = EntityState.Modified;
                         }
 
-                        // Update the iCAREUser
+                        //update the iCAREUser
                         iCAREUser.name = viewModel.name;
                         iCAREUser.passwordID = viewModel.passwordID;
                         db.Entry(iCAREUser).State = EntityState.Modified;
 
-                        // Update the iCAREAdmin
+                        //update the iCAREAdmin
                         var iCAREAdmin = db.iCAREAdmin.Find(viewModel.ID);
                         if (iCAREAdmin != null)
                         {
-                            // Do not update dateHired
+                            //do not update dateHired
                             iCAREAdmin.dateFinished = viewModel.dateFinished;
                             db.Entry(iCAREAdmin).State = EntityState.Modified;
                         }
 
-                        // Save changes
+                        //save changes
                         db.SaveChanges();
 
-                        // Commit transaction
+                        //commit transaction
                         transaction.Commit();
                         return RedirectToAction("Index");
                     }
                     catch (Exception ex)
                     {
-                        // Rollback transaction if any error occurs
+                        //if any error occurs
                         transaction.Rollback();
                         ModelState.AddModelError("", "An error occurred while updating the admin, user, and password.");
-                        // Log the exception details
-                        System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message);
-                        System.Diagnostics.Debug.WriteLine("Stack Trace: " + ex.StackTrace);
                     }
                 }
             }
