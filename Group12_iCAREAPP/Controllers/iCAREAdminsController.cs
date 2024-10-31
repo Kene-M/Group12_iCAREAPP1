@@ -271,6 +271,7 @@ namespace Group12_iCAREAPP.Controllers
             return RedirectToAction("Index");
         }
 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
